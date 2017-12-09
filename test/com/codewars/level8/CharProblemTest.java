@@ -1,4 +1,4 @@
-package com.codewars;
+package com.codewars.level8;
 
 import com.codewars.level8.CharProblem;
 import org.junit.jupiter.api.Test;
