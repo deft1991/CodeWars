@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EvenOrOddTest {
     @Test
-    public void testEvenOrOdd() {
+    void testEvenOrOdd() {
         EvenOrOdd eoo = new EvenOrOdd();
         assertEquals(eoo.even_or_odd(6), "Even");
         assertEquals(eoo.even_or_odd(7), "Odd");
