@@ -11,15 +11,15 @@ The parameter of accum is a string which includes only letters from a..z and A..
 public class Mumbling {
     public static String accum(String s) {
         // your code
-        String rez = "";
+        StringBuilder rez = new StringBuilder();
         char[] arr = s.toCharArray();
         for (int i = 0; i < arr.length; i++) {
             for (int j = -1; j < i ; j++) {
                 if (j == -1)
-                    rez += String.valueOf(arr[i]).toUpperCase();
-                else rez += String.valueOf(arr[i]).toLowerCase();
+                    rez.append(String.valueOf(arr[i]).toUpperCase());
+                else rez.append(String.valueOf(arr[i]).toLowerCase());
             }
-            rez += "-";
+            rez.append("-");
         }
         return rez.substring(0, rez.length() - 1);
     }
