@@ -1,8 +1,9 @@
 package com.codewars.level7;
 
-import java.util.HashSet;
+import com.codewars.level7.additional.Color;
+import com.codewars.level7.additional.MysteryColorAnalyzer;
+
 import java.util.List;
-import java.util.Set;
 
 public class MysteryColorAnalyzerImpl implements MysteryColorAnalyzer {
 

@@ -1,4 +1,6 @@
-package com.codewars.level7;
+package com.codewars.level7.additional;
+
+import com.codewars.level7.additional.Color;
 
 import java.util.List;
 
