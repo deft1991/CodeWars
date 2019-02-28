@@ -1,5 +1,6 @@
 package com.codewars.hackerRank;
 
+import java.util.BitSet;
 import java.util.Scanner;
 
 /**
