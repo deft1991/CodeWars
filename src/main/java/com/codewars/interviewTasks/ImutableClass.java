@@ -24,7 +24,3 @@ public final class ImutableClass {
     return new ArrayList<>(list);
   }
 }
-
-
-
-const user
