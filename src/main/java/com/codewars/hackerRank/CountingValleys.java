@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.IntStream;
 
@@ -36,22 +37,23 @@ public class CountingValleys {
     static int countingValleys(int n, String s) {
         AtomicInteger count = new AtomicInteger();
         AtomicInteger valleys = new AtomicInteger();
+        AtomicBoolean underSea = new AtomicBoolean(true);
 
         String[] strings = s.split("");
         IntStream.range(0, n).forEach(ind -> {
             String step = strings[ind];
 
             if (UP.equals(step)) {
-                count.getAndDecrement();
-            } else if (DOWN.equals(step)) {
                 count.getAndIncrement();
+            } else if (DOWN.equals(step)) {
+                count.getAndDecrement();
             }
-            if (0 == count.get()) {
-                if ((ind + 1) == n) {
+            if (count.get() < 0) {
+                underSea.set(false);
+            }
+            if (0 == count.get() && !underSea.get()) {
                     valleys.getAndIncrement();
-                } else if ((ind + 1) <= (n) && (!strings[ind].equals(strings[ind + 1]))) {
-                    valleys.getAndIncrement();
-                }
+                    underSea.set(true);
             }
 
         });
