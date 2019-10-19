@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class NewYearChaos {
 
     // Complete the minimumBribes function below.
-    static void minimumBribes(int[] q) {
+    static void minimumBribesMin(int[] q) {
         int countReArrangement = 0;
         for (int i = 0; i < q.length; i++) {
             int cur = q[i];
@@ -35,6 +35,30 @@ public class NewYearChaos {
             }
         }
         System.out.println(countReArrangement);
+    }
+
+    // Complete the minimumBribes function below.
+    // 1 2 5 3 7 8 6 4
+
+    /**
+     * passed all tests
+     * смотреть на того кто подкупил твое место на 1, и исколь тех кто больше тебя до твоей позиции
+     * @param q
+     */
+    static void minimumBribes(int[] q) {
+        int countReArrangement = 0;
+
+        for (int i = q.length - 1; i >= 0; i--) {
+            if (q[i] - i > 3) {
+                System.out.println("Too chaotic");
+                return;
+            }
+            for (int j = Math.max(0, q[i] - 2); j < i; j++) {
+                if (q[j] > q[i])
+                    countReArrangement++;
+            }
+        }
+        System.out.println(Math.abs(countReArrangement));
     }
 
     private static final Scanner scanner = new Scanner(System.in);
