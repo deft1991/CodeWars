@@ -7,6 +7,12 @@ import java.util.Scanner;
  * Created by sgolitsyn on 10/20/19
  *
  * https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+ *
+ * aabbcd - NO
+ * aabbccddeefghi - NO
+ * abcdefghhgfedecba - YES
+ * aaaabbcc - NO
+ *
  */
 public class SherlockAndTheValidString {
     // Complete the isValid function below.
