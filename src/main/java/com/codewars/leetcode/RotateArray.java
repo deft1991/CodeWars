@@ -15,45 +15,34 @@ rotate 3 steps to the right: [5,6,7,1,2,3,4]
 public class RotateArray {
     public static void main(String[] args) {
         RotateArray rotateArray = new RotateArray();
-        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+//        int[] nums = {1, 2, 3, 4, 5, 6, 7};
+//        rotateArray.rotate(nums, 3);
+//        System.out.println(Arrays.toString(nums));
+//        nums = new int[]{-1, -100, 3, 99};
+//        rotateArray.rotate(nums, 2);
+//        System.out.println(Arrays.toString(nums));
+        int[] nums = {1, 2};
         rotateArray.rotate(nums, 3);
-        System.out.println(Arrays.toString(nums));
-        nums = new int[]{-1, -100, 3, 99};
-        rotateArray.rotate(nums, 2);
         System.out.println(Arrays.toString(nums));
     }
 
     public void rotate(int[] nums, int k) {
-        if (nums.length < 1) {
-            return;
-        }
-        int swaps = 0;
-        int cur;
-        int next = nums[0];
-        int nextIdx = 0;
-        int even = 0;
-        boolean isEven = k % 2 == 0;
-        while (swaps < nums.length) {
-            if (even == k) {
-                nextIdx++;
-                if (nextIdx >= nums.length - 1) {
-                    nextIdx = nextIdx - nums.length;
+        if (k != 0 && nums.length > 1){
+            int [] arr = new int[nums.length];
+
+            for (int i = 0; i < nums.length; i ++){
+                int alligment = 0;
+                if (i + k > nums.length - 1) {
+                    alligment = (i + k)- nums.length;
+                    while (alligment > nums.length - 1){
+                        alligment -= nums.length;
+                    }
+                } else {
+                    alligment = i + k;
                 }
-                next = nums[nextIdx];
+                arr[alligment] = nums[i];
             }
-
-            cur = next;
-            if (nextIdx >= nums.length - 1 || k + nextIdx > nums.length - 1) {
-                nextIdx = nextIdx - nums.length;
-            }
-            next = nums[k + nextIdx];
-            nums[k + nextIdx] = cur;
-            nextIdx = k + nextIdx;
-            swaps++;
-            if (isEven) {
-                even++;
-            }
-
+            System.arraycopy(arr, 0, nums, 0, nums.length);
         }
     }
 }
