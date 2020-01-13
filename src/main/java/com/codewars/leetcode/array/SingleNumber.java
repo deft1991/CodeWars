@@ -1,4 +1,4 @@
-package com.codewars.leetcode;
+package com.codewars.leetcode.array;
 
 /*
  * Created by sgolitsyn on 1/9/20

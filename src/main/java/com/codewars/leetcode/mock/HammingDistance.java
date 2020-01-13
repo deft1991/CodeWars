@@ -1,4 +1,4 @@
-package com.codewars.leetcode;
+package com.codewars.leetcode.mock;
 
 /*
  * Created by sgolitsyn on 1/10/20

@@ -1,4 +1,4 @@
-package com.codewars.leetcode;
+package com.codewars.leetcode.array;
 
 import java.util.HashSet;
 import java.util.Set;
