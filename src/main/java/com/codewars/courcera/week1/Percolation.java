@@ -14,7 +14,7 @@ public class Percolation {
     private int width;
     private int[] open;
 
-    Percolation(int N) {
+    public Percolation(int N) {
         this.size = N * N;
         this.width = N;
         this.open = new int[size];
@@ -48,7 +48,7 @@ public class Percolation {
         return open[num] == 1;
     }
 
-    public boolean isOpen(int el) {
+    private boolean isOpen(int el) {
         return open[el] == 1;
     }
 
@@ -102,20 +102,24 @@ public class Percolation {
         connectIfOpen(rightEl, current);
     }
 
-    public void connectIfOpen(int i, int j, int index) {
-        if (isOpen(i, j)) {
-            uf.union(ijTo1D(i, j), index);
-        }
-    }
-
-    public void connectIfOpen(int el, int index) {
+    private void connectIfOpen(int el, int index) {
         if (isOpen(el)) {
             uf.union(el, index);
         }
     }
 
-    public boolean perscolates(int i, int j) {
+    public boolean percolates() {
         return uf.connected(size, size + 1);
+    }
+
+    public int numberOfOpenSites() {
+        int count = 0;
+        for (int i : open) {
+            if (i == 1) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public boolean isFull(int i, int j) {
