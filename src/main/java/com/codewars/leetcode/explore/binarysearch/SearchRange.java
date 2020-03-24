@@ -1,6 +1,5 @@
-package com.codewars.leetcode.binarysearch;
+package com.codewars.leetcode.explore.binarysearch;
 
-import java.awt.font.NumericShaper;
 import java.util.Arrays;
 
 /*

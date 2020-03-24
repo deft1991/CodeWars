@@ -1,4 +1,4 @@
-package com.codewars.leetcode.binarysearch;
+package com.codewars.leetcode.explore.binarysearch;
 
 /*
  * Created by sgolitsyn on 1/25/20
