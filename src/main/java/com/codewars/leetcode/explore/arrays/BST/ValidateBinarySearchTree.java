@@ -1,4 +1,4 @@
-package com.codewars.leetcode.explore.arrays.binaryTree;
+package com.codewars.leetcode.explore.arrays.BST;
 
 /*
  * Definition for a binary tree node.
