@@ -1,4 +1,4 @@
-package com.codewars.leetcode.explore.arrays.BST;
+package com.codewars.leetcode.explore.TraverseATree;
 
 public class TreeNode {
     int val;

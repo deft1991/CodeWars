@@ -1,4 +1,4 @@
-package com.codewars.leetcode.explore.arrays.BST;
+package com.codewars.leetcode.explore.TraverseATree;
 
 /*
  * Created by sgolitsyn on 3/27/20
