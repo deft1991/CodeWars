@@ -38,7 +38,7 @@ public class FindAllNumbersDisappearedInAnArray {
     public static void main(String[] args) {
         FindAllNumbersDisappearedInAnArray find = new FindAllNumbersDisappearedInAnArray();
         int[] ints = {4, 3, 2, 7, 8, 2, 3, 1};
-        find.findDisappearedNumbers(ints);
+        find.findDisappearedNumbers2(ints);
     }
 
     public List<Integer> findDisappearedNumbers(int[] nums) {
@@ -54,5 +54,21 @@ public class FindAllNumbersDisappearedInAnArray {
             }
         }
         return rezList;
+    }
+
+    public List<Integer> findDisappearedNumbers2(int[] nums) {
+        List<Integer> rez = new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int idx = Math.abs(nums[i]) - 1;
+            nums[idx] = nums[idx] > 0 ? - nums[idx] : nums[idx];
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                rez.add(i + 1);
+            }
+        }
+        return rez;
     }
 }
