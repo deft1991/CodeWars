@@ -5,9 +5,9 @@ import java.util.Arrays;
 /*
  * Created by sgolitsyn on 8/13/20
  *
- * Given a m x n matrix, if an element is 0, set its entire row and column to 0.
- * Do it in-place.
- * Input:
+Given a m x n matrix, if an element is 0, set its entire row and column to 0.
+ Do it in-place.
+ Input:
 [
   [1,1,1],
   [1,0,1],
