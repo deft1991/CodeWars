@@ -1,4 +1,4 @@
-package com.codewars.leetcode.topInterviewQuestionsMedium;
+package com.codewars.leetcode.topInterviewQuestions.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;

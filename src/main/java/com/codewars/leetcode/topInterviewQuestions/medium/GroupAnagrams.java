@@ -1,8 +1,7 @@
-package com.codewars.leetcode.topInterviewQuestionsMedium;
+package com.codewars.leetcode.topInterviewQuestions.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
