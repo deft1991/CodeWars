@@ -1,8 +1,5 @@
 package com.codewars.leetcode.problems.medium;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @author Sergey Golitsyn
  * created on 08.02.2021
@@ -11,42 +8,40 @@ public class MostStonesRemovedWithSameRowOrColumn {
 
     public static void main(String[] args) {
         MostStonesRemovedWithSameRowOrColumn m = new MostStonesRemovedWithSameRowOrColumn();
-        System.out.println(m.removeStones(new int[][]{{0,0},{0,1},{1,0},{1,2},{2,1},{2,2}}));
+//        System.out.println(m.removeStones(new int[][]{{0,0},{0,1},{1,0},{1,2},{2,1},{2,2}}));
+//        System.out.println(m.removeStones(new int[][]{{0,0},{0,2},{1,1},{2,0},{2,2}}));
+//        System.out.println(m.removeStones(new int[][]{{0,0}}));
+        System.out.println(m.removeStones(new int[][]{{0, 1}, {1, 0}}));
+//        System.out.println(m.removeStones(new int[][]{{0, 1}, {1, 0}, {1, 1}}));
+//        System.out.println(m.removeStones(new int[][]{{3, 2}, {0, 0}, {3, 3}, {2, 1}, {2, 3}, {2, 2}, {0, 2}}));
     }
 
     public int removeStones(int[][] stones) {
-        Map<Integer, Integer> map = new HashMap<>();
+        int n = stones.length;
+        int m = stones[0].length;
 
-        for(int[] edge: stones){
-            if(!isConnected(map, edge[0], edge[1])){
-                connect(map, edge[0], edge[1]);
-            }
-        }
-        int size = (int) map.values().stream().distinct().count();
+        new DSU(n * m);
 
-        return stones.length - size;
+
+        return 0;
     }
 
-    private boolean isConnected(Map<Integer, Integer> map, int i, int j){
-        return root(map, map.getOrDefault(i, i)) == root(map, map.getOrDefault(j, j));
-    }
+    class DSU {
+        int[] parent;
 
-    private int root(Map<Integer, Integer> map, int i){
-        if (map.get(i) == null){
-            map.put(i, i);
-            return i;
+        public DSU(int N) {
+            parent = new int[N];
+            for (int i = 0; i < N; ++i)
+                parent[i] = i;
         }
-        while(i != map.get(i)) {
-            map.put(i, map.get(i));
-            i = map.get(i);
+
+        public int find(int x) {
+            if (parent[x] != x) parent[x] = find(parent[x]);
+            return parent[x];
         }
-        return i;
-    }
 
-    private void connect(Map<Integer, Integer> map, int i, int j) {
-        int rootI = root(map, i);
-        int rootJ = root(map, j);
-
-        map.put(j, rootI);
+        public void union(int x, int y) {
+            parent[find(x)] = find(y);
+        }
     }
 }
