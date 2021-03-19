@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 
 /**
@@ -40,21 +41,20 @@ public class SmallestStringWithSwaps {
             }
         }
 
-        HashMap<Character, PriorityQueue<Character>> map = new HashMap<>();
-
-        for (int i = 0; i < n; i++) {
+        Map<Integer, List<Character>> map = new HashMap<>();
+        char[] sChar = s.toCharArray();
+        for (int i = 0; i < sChar.length; i++) {
             int root = union.root(i);
-            map.putIfAbsent(union.chars[root], new PriorityQueue<>());
-            map.get(union.chars[root]).offer(chars[i]);
+            map.putIfAbsent(root, new ArrayList<>());
+            map.get(root).add(sChar[i]);
         }
 
-//        map.values().forEach(Collections::sort);
+        map.values().forEach(Collections::sort);
 
-        StringBuilder sb = new StringBuilder(n);
-        for (int i = 0; i < chars.length; i++) {
-            sb.append(map.get(union.chars[union.root(i)]).poll());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < sChar.length; i++) {
+            sb.append(map.get(union.root(i)).remove(0));
         }
-
         return sb.toString();
     }
 
