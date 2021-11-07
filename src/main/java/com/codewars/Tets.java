@@ -1,7 +1,7 @@
 package com.codewars;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Objects;
 
 /*
  * Created by sgolitsyn on 5/7/20
@@ -9,27 +9,46 @@ import java.util.Map;
 public class Tets {
 
 
-    public static void main(String[] args) {
-        new Tets().getPrimesCount(10);
+    public static void main(String[] args) throws InterruptedException {
+        Tets tets = new Tets();
+        tets.test2();
+        System.gc();
+        Thread.sleep(1000);
+        System.gc();
+        tets.test();
     }
 
-    public int getPrimesCount(int n) {
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(1, 1);
-        int count = 1;
-        for (int i = 2; i < n; i++) {
-            if (map.get(i) == null) {
-                count++;
-                map.put(i, i);
-                int tmp = i;
-                while (tmp < n) {
-                    tmp += i;
-                    map.put(tmp, i);
-                }
-            }
-        }
+    public void test(){
+        PlatformType[] types = new PlatformType[10000000];
 
-        System.out.println(count);
-        return count;
+        for (int i = 0; i < 10000000; i++){
+            types[i] = PlatformType.ios;
+        }
+        long start = System.currentTimeMillis();
+        boolean b = Arrays.stream(PlatformType.values())
+                .map(PlatformType::name)
+                .anyMatch(it -> Objects.equals(it, PlatformType.android.name()));
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
+
+    public void test2(){
+
+        PlatformType[] types = new PlatformType[10000000];
+        for (int i = 0; i < 10000000; i++){
+            types[i] = PlatformType.ios;
+        }
+        long start = System.currentTimeMillis();
+        boolean b = Arrays.stream(PlatformType.values())
+                .anyMatch(it -> Objects.equals(it.name(), PlatformType.android.name()));
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
+
+
+
+    enum PlatformType{
+        ios,
+        android
     }
 }
