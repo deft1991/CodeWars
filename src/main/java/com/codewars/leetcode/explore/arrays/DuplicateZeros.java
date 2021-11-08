@@ -11,33 +11,43 @@ public class DuplicateZeros {
     public static void main(String[] args) {
         DuplicateZeros dz = new DuplicateZeros();
 
-        dz.duplicateZeros(new int[]{8, 4, 5, 0, 0, 0, 0, 7});
+        int[] arr = new int[]{0, 0, 0, 0, 0};
+        dz.duplicateZeros(arr);
+        System.out.println(Arrays.toString(arr));
+
+//        arr = new int[]{0, 1, 7, 6, 0, 2, 0, 7};
+//        dz.duplicateZeros(arr);
+//        System.out.println(Arrays.toString(arr));
+
+//        dz.duplicateZeros(new int[]{8, 4, 5, 0, 0, 0, 0, 7});
     }
 
     public void duplicateZeros(int[] arr) {
 
-        int zeroCount = 0;
-        int length = 0;
+        int length = arr.length - 1;
+        int possibleZeros = 0;
 
-        for (int i = 0; i < arr.length - zeroCount; i++) {
-            if (arr[i] == 0) {
-                if (length + 2 < arr.length) {
-                    zeroCount++;
-                    length++;
+        for (int left = 0; left <= length - possibleZeros; left++) {
+            if (arr[left] == 0) {
+
+                if (left == length - possibleZeros) {
+                    arr[length] = 0;
+                    length--;
+                    break;
+                } else {
+                    possibleZeros++;
                 }
             }
-            length++;
         }
 
-        int start = arr.length - 1 - zeroCount;
-
-        for (int i = start; i >= 0; i--) {
-            if (arr[i] == 0 && zeroCount > 0) {
-                arr[i + zeroCount] = 0;
-                zeroCount--;
-                arr[i + zeroCount] = 0;
+        int writer = length - possibleZeros;
+        int last = length;
+        for (int i = writer; i >= 0; i--) {
+            if (arr[i] == 0) {
+                arr[last--] = 0;
+                arr[last--] = 0;
             } else {
-                arr[i + zeroCount] = arr[i];
+                arr[last--] = arr[i];
             }
         }
     }
