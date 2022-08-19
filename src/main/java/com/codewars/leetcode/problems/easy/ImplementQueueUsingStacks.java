@@ -33,29 +33,37 @@ public class ImplementQueueUsingStacks {
         }
 
         public void push(int x) {
-            int size = current.size();
-
-            for (int i = 0; i < size; i ++){
-                tmp.push(current.pop());
-            }
             current.push(x);
-            for (int i = 0; i < size; i++){
-                current.push(tmp.pop());
-            }
         }
 
         public int pop() {
-            return current.pop();
+            if (!tmp.isEmpty()) {
+                return tmp.pop();
+            }
+            while (!current.isEmpty()) {
+                tmp.push(current.pop());
+            }
+            return tmp.pop();
         }
 
         public int peek() {
-            return current.peek();
+            if (!tmp.isEmpty()) {
+                return tmp.peek();
+            }
+            while (!current.isEmpty()) {
+                tmp.push(current.pop());
+            }
+            return tmp.peek();
         }
 
         public boolean empty() {
+            if (!tmp.isEmpty()) {
+                return tmp.isEmpty();
+            }
             return current.isEmpty();
         }
     }
+
 
     static class MyQueue2 {
 
@@ -68,13 +76,11 @@ public class ImplementQueueUsingStacks {
         }
 
         public void push(int x) {
-            int size = current.size();
-
-            for (int i = 0; i < size; i ++){
+            while (!current.isEmpty()) {
                 tmp.push(current.pop());
             }
             current.push(x);
-            for (int i = 0; i < size; i++){
+            while (!tmp.isEmpty()) {
                 current.push(tmp.pop());
             }
         }
