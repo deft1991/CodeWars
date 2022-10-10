@@ -24,4 +24,6 @@ public class MissingNumber {
         }
         return realSum - sum;
     }
+
+
 }

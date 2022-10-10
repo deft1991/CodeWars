@@ -1,9 +1,7 @@
 package com.codewars.leetcode.problems.medium;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author Sergey Golitsyn
@@ -24,21 +22,21 @@ public class PalindromePartitioning {
 
     public List<List<String>> partition(String s) {
         List<List<String>> result = new ArrayList<>();
-        dfs(0, result, new ArrayList<>(), s);
+        backtrack(0, result, new ArrayList<>(), s);
         return result;
     }
 
-    void dfs(int start, List<List<String>> result, List<String> currentList, String s) {
-        if (start >= s.length()){
-            result.add(new ArrayList<>(currentList));
+    private void backtrack(int start, List<List<String>> result, List<String> cur, String word) {
+
+        if (start >= word.length()) {
+            result.add(List.copyOf(cur));
         }
-        for (int end = start; end < s.length(); end++) {
-            if (isPalindrome(s, start, end)) {
-                // add current substring in the currentList
-                currentList.add(s.substring(start, end + 1));
-                dfs(end + 1, result, currentList, s);
-                // backtrack and remove the current substring from currentList
-                currentList.remove(currentList.size() - 1);
+
+        for (int end = start; end < word.length(); end++) {
+            if (isPalindrome(word, start, end)) {
+                cur.add(word.substring(start, end + 1));
+                backtrack(end + 1, result, cur, word);
+                cur.remove(cur.size() - 1);
             }
         }
     }
