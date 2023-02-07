@@ -1,7 +1,6 @@
 package com.codewars.pramp;
 
 import java.util.Arrays;
-import java.util.Stack;
 
 /**
  * @author Sergey Golitsyn

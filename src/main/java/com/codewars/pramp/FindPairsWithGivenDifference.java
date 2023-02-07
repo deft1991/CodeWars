@@ -19,6 +19,10 @@ public class FindPairsWithGivenDifference {
         List<List<Integer>> rez = new ArrayList<>();
         Map<Integer, Integer> map = new HashMap<>();
 
+        /*
+        x - y = k
+        x - k = y
+         */
         for (int j : arr) {
             map.put(j - k, j);
         }
