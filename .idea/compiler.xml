@@ -9,8 +9,5 @@
         <module name="CodeWars" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="CodeWars" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
