@@ -7,6 +7,8 @@ import java.util.List;
 /**
  * @author Sergey Golitsyn
  * created on 12.08.2023
+ *
+ * https://leetcode.com/problems/spiral-matrix/description/
  */
 public class SpiralMatrix {
 
