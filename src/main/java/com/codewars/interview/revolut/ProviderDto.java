@@ -1,4 +1,4 @@
-package com.codewars.revolut;
+package com.codewars.interview.revolut;
 
 /**
  * @author Sergey Golitsyn

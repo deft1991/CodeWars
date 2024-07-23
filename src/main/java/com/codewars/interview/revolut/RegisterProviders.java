@@ -1,4 +1,4 @@
-package com.codewars.revolut;
+package com.codewars.interview.revolut;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,7 +19,7 @@ public class RegisterProviders {
     /**
      * Register provider
      */
-    void acceptProvider(ProviderDto providerDto) {
+    public void acceptProvider(ProviderDto providerDto) {
         synchronized (providersArray) {
             if (providerAddress.contains(providerDto.getAddress())) {
                 throw new RuntimeException(ALREADY_CONTAINS);

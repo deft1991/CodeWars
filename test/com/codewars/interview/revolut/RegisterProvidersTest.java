@@ -1,5 +1,7 @@
-package com.codewars.revolut;
+package com.codewars.interview.revolut;
 
+import com.codewars.interview.revolut.ProviderDto;
+import com.codewars.interview.revolut.RegisterProviders;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
